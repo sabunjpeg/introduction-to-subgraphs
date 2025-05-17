@@ -16,59 +16,22 @@ dataSources:
       apiVersion: 0.0.9
       language: wasm/assemblyscript
       entities:
-        - Approval
-        - AuthorizationCanceled
-        - AuthorizationUsed
-        - Blacklisted
-        - BlacklisterChanged
-        - Burn
-        - MasterMinterChanged
-        - Mint
-        - MinterConfigured
-        - MinterRemoved
-        - OwnershipTransferred
-        - Pause
-        - PauserChanged
-        - RescuerChanged
         - Transfer
-        - UnBlacklisted
-        - Unpause
+        - Mint
+        - Burn
+        - Approval
+        - DailyIssuance
+      
       abis:
         - name: FiatTokenV2_2
           file: ./abis/FiatTokenV2_2.json
       eventHandlers:
         - event: Approval(indexed address,indexed address,uint256)
           handler: handleApproval
-        - event: AuthorizationCanceled(indexed address,indexed bytes32)
-          handler: handleAuthorizationCanceled
-        - event: AuthorizationUsed(indexed address,indexed bytes32)
-          handler: handleAuthorizationUsed
-        - event: Blacklisted(indexed address)
-          handler: handleBlacklisted
-        - event: BlacklisterChanged(indexed address)
-          handler: handleBlacklisterChanged
-        - event: Burn(indexed address,uint256)
-          handler: handleBurn
-        - event: MasterMinterChanged(indexed address)
-          handler: handleMasterMinterChanged
-        - event: Mint(indexed address,indexed address,uint256)
-          handler: handleMint
-        - event: MinterConfigured(indexed address,uint256)
-          handler: handleMinterConfigured
-        - event: MinterRemoved(indexed address)
-          handler: handleMinterRemoved
-        - event: OwnershipTransferred(address,address)
-          handler: handleOwnershipTransferred
-        - event: Pause()
-          handler: handlePause
-        - event: PauserChanged(indexed address)
-          handler: handlePauserChanged
-        - event: RescuerChanged(indexed address)
-          handler: handleRescuerChanged
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
-        - event: UnBlacklisted(indexed address)
-          handler: handleUnBlacklisted
-        - event: Unpause()
-          handler: handleUnpause
+        - event: Mint(indexed address,indexed address,uint256)
+          handler: handleMint
+        - event: Burn(indexed address,uint256)
+          handler: handleBurn
       file: ./src/fiat-token-v-2-2.ts
