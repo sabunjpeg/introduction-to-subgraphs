@@ -1,0 +1,17 @@
+type Transfer @entity(immutable: true) {
+  id: ID!                # txHash-logIndex  (globally unique)
+  from: Bytes!
+  to: Bytes!
+  value: BigInt!
+  timestamp: BigInt!
+  txHash: Bytes!
+}
+
+type Approval @entity(immutable: true) {
+  id: ID!                # txHash-logIndex
+  owner: Bytes!
+  spender: Bytes!
+  value: BigInt!
+  timestamp: BigInt!
+  txHash: Bytes!
+}
