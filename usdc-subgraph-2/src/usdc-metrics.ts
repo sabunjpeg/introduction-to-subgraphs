@@ -8,7 +8,6 @@ function toISODate(timestamp: BigInt): string {
   return jsDate.toISOString().split("T")[0]
 }
 
-
 export function updateDailyMint(event: MintEvent): void {
   let date = toISODate(event.block.timestamp)
   let metric = DailyIssuance.load(date)
@@ -29,8 +28,8 @@ export function updateDailyMint(event: MintEvent): void {
 
 export function updateDailyBurn(event: BurnEvent): void {
   let date = toISODate(event.block.timestamp)
-  let metric = DailyIssuance.load(date)!
-  // if it somehow wasn't there, create same as above
+  let metric = DailyIssuance.load(date)
+ 
   if (!metric) {
     metric = new DailyIssuance(date)
     metric.date             = date
