@@ -13,11 +13,13 @@ The project is organized into two main components:
     * `src/usdc-metrics.ts` : This code tracks and updates the daily total mint, burn, and net issuance of a token by date using The Graph’s subgraph handlers for Mint and Burn events.
     *   `package.json`: Manages dependencies and scripts for building and deploying the subgraph.
 
-2.  `frontend/`: This directory contains the Next.js application that queries the subgraph and displays the data.
-    *   `pages/`: Contains the different pages of the application.
-    *   `components/`: Contains reusable React components.
+2.  `frontend/`: Next.js App Router frontend that queries the USDC subgraph and visualizes data.
+    *   `app/`: Root layout, homepage, and global styles (Tailwind).
+    *   `components/`:  Reusable client components (chart, stats, query wrapper).
+    *   `graphql/`: GraphQL query definitions.
+    *   `hooks/`: Pure data transformation utility.
+    *  `lib/`: Apollo client setup and formatting helpers.
     *   `package.json`: Manages dependencies and scripts for running the frontend application.
-    *   It uses Apollo Client for querying the subgraph.
 
 ## How it Works
 
